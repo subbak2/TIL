@@ -1,4 +1,4 @@
-// Traveling Salesman Problem (외판원 순회) DSF version.
+// Traveling Salesman Problem DSF version.
 #if 1
 #pragma warning (disable : 4996)
 #include <stdio.h>
