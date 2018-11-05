@@ -11,9 +11,15 @@ conn 'username'/'password';
 	
 	
  select * from tab;
+
+@'file path'
+	--> all lines execute, duplication denied.
+	
+
+
+
  
- 
- DROP TABLE EMP PURGE;
+DROP TABLE EMP PURGE;
 DROP TABLE SALGRADE PURGE;
 DROP TABLE DEPT PURGE;
 
