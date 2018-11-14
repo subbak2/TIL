@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>도서를 등록해주세요</title>
+<style>
+table {
+	width: 600px;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+#t_header {
+	font-size: 25px;
+	align-content: center;
+	background-color: #cccccc;
+}
+
+#t_body{
+	padding-left : 15px;
+}
+
+#t_footer {
+	align-content: center;
+}
+</style>
+</head>
+<body>
+	<form action="/1114_03_selftest/book.do" method="post">
+		<table id="t_header">
+			<thead>
+				<tr>
+					<th>도서 등록 화면</th>
+				</tr>
+			</thead>
+		</table>
+		<br />
+
+		<table>
+			<thead>
+				<tr>
+					<td align="right" colspan="2">* 표시가 된 항목은 필수 입력 항목입니다.</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="background-color: #DDDDDD;" colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td id="t_body">* 도서번호</td>
+					<td id="t_body"><input type="text" name="isbn" required="required" /></td>
+				</tr>
+				<tr>
+					<td id="t_body">* 도서제목</td>
+					<td id="t_body"><input type="text" name="bookname" required="required"/></td>
+				</tr>
+				<tr>
+					<td id="t_body">* 도서종류</td>
+					<td id="t_body"><select name="category" required="required">
+							<option value="" disabled="disabled" selected="selected">해당 항목을 선택하세요</option>
+							<option value="programming">프로그래밍</option>
+							<option value="os">운영체제</option>
+							<option value="db">데이터베이스</option>
+							<option value="nw">네트워크</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td id="t_body">  출판국가</td>
+					<td id="t_body"><input type="radio" name="country" value="domestic"/>
+						국내도서 <input type="radio" name="country" value="international"/>
+						외국도서</td>
+				</tr>
+				<tr>
+					<td id="t_body">  출판일</td>
+					<td id="t_body"><input type="date" name="date" />
+				</tr>
+				<tr>
+					<td id="t_body">  출판사</td>
+					<td id="t_body"><select name="company">
+							<option value="" disabled="disabled" selected="selected">해당 항목을 선택하세요</option>
+							<option value="yj">영진출판사</option>
+							<option value="hb">한빛미디어</option>
+							<option value="frl">프리렉출판사</option>
+							<option value="neo">네오솔루션</option>
+							<option value="cyber">사이버출판사</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td id="t_body">* 저자</td>
+					<td id="t_body"><input type="text" name="author" required="required"/></td>
+				</tr>
+				<tr>
+					<td id="t_body">  도서가격</td>
+					<td id="t_body"><input type="text" name="price" /> <select
+						name="currency">
+							<option value="won">원</option>
+							<option value="dollar">달러</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td id="t_body">  요약내용</td>
+					<td id="t_body"><textarea name="descrtiption" rows="5" cols="50"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+
+		<table id="t_footer">
+			<thead align="center">
+				<tr style="background-color: #cccccc;">
+					<td rowspan="2"><input name="register" type="submit"
+						value="도서등록" /> <input name="cancel" type="reset" value="취소" /></td>
+				</tr>
+				<tr>
+				</tr>
+			</thead>
+		</table>
+		<br />
+	</form>
+</body>
+</html>
