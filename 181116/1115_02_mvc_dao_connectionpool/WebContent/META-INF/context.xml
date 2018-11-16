@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+	<Resource name="jdbc/OracleDB" auth="Container"
+              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+              url="jdbc:oracle:thin:@127.0.0.1:1521:XE"
+              username="scott" password="tiger" 
+              maxTotal="5" maxIdle="3"
+              maxWaitMillis="-1"/>
+
+
+</Context>
