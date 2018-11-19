@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화 예매를 위해 정보를 선택해주세요</title>
+<style>
+.wrap {
+	margin: 0 auto;
+	width: 720px;
+}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<!-- <header>
+			<h1>SCSA 극장</h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#">영화</a></li>
+				<li><a href="#">극장</a></li>
+				<li><a href="./reservation.html" target="_blank">예매</a></li>
+				<li><a href="#">이벤트</a></li>
+				<li><a href="#">상영영화소개.RSS</a></li>
+			</ul>
+		</nav> -->
+		<section class="reservation">
+			<form action="./index.html">
+				<h1>영화 예매</h1>
+				<h3>쿵푸팬더</h3>
+				<figure>
+					<img src="./media/img/movie_image2.jpg">
+				</figure>
+				<label for="location">상영관</label> <select id="location">
+					<option value="CGV">CGV</option>
+					<option value="롯데시네마">롯데시네마</option>
+					<option value="메가박스">메가박스</option>
+				</select> <label for="cdate">날짜 선택</label> <input type="date" id="cdate"
+					name="cdate" />
+				<fieldset>
+					<legend>시간선택</legend>
+					<input type="radio" name="time" value="0830" /> 08:30 <input
+						type="radio" name="time" value="1100" /> 11:00 <input
+						type="radio" name="time" value="1420" /> 14:20 <input
+						type="radio" name="time" value="1725" /> 17:25 <input
+						type="radio" name="time" value="2010" /> 20:10 <input
+						type="radio" name="time" value="2305" /> 23:05
+				</fieldset>
+				<label for="charge">요금</label> <span><span
+					style="text-decoration: line-through;">\9,000</span> &nbsp; &nbsp;
+					<span style="text-decoration: underline;">\5000</span></span><br /> <label
+					for="people">인원</label> <input type="number" id="people" min="1"
+					max="8" /><br /> <label for="total_charge">금액</label> <input
+					type="number" id="total_charge" readonly="readonly" />
+				<fieldset>
+					<legend>옵션</legend>
+					<input type="checkbox" name="option" value="popcorn" /> 팝콘
+					<input type="checkbox" name="option" value="cola" /> 콜라
+					<hr>
+					<input type="submit" value="예매"/>
+					<input type="reset" value="취소"/>
+				</fieldset>
+			</form>
+		</section>
+	</div>
+</body>
+</html>
