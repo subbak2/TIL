@@ -1,0 +1,258 @@
+/* <----------------------------    Index   ----------------------------> */
+/*                                                                        */
+/*                                                                        */
+/*                          1. Basic Styles                               */
+/*                          2. Header 									  								*/
+/*                          3. NAV                                        */
+/*                          4. Section                                    */
+/*                          5. Aside                                     */
+/*                          6. Footer                                     */
+/*                                                                        */
+/*                      Made by subbak2@likelion.org                      */
+/*                                                                        */
+/*                                                                        */
+/* <-------------------------1. Basic Styles----------------------------> */
+* {
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.wrap {
+	width: 960px;
+	position: relative;
+}
+
+figure {
+	margin-left: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+/* <-------------------------2. Header ----------------------------> */
+header {
+	background-color: #cccccc;
+	margin: 0;
+	padding-top: 0;
+	padding-left: 20px;
+	width: 960px;
+	height: 60px;
+	position: fixed;
+	top: 0;
+	z-index: 5;
+}
+
+header a {
+	color: #444444;
+}
+
+header::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+#logo:hover {
+	color: purple;
+}
+
+#h_box {
+	height: 90px;
+}
+/* <-------------------------3. NAV ----------------------------> */
+nav {
+	overflow: hidden;
+	background-color: #222222;
+	padding-left: 4%;
+	width: 960px;
+	height: 30px;
+	margin: 0;
+	position: fixed;
+	top: 60px;
+	z-index: 5;
+}
+
+nav li {
+	float: left;
+	margin-right: 13%;
+	line-height: 1.8;
+}
+
+nav a {
+	color: white;
+}
+
+/* <-------------------------4. Section ----------------------------> */
+.m_div {
+	overflow: hidden;
+	background-color: #aaaaaa;
+}
+
+.l_wrap {
+	width: 710px;
+	margin-left: 0;
+	background-color: #dedede;
+	float: left;
+	padding: 10px;
+}
+/*1) genre*/
+.genre {
+	position: relative;
+	top: 5px;
+	left: 5px;
+	width: 925px;
+	height: 230px;
+	background-color: SlateBlue;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.genre article {
+	color: white;
+	position: absolute;
+	margin: 40px;
+}
+
+.art_box {
+	color: #dedede;
+	margin-top: 35px;
+	width: 350px;
+}
+
+.genre img {
+	border-radius: 10px;
+	float: right;
+}
+
+/*2) basic*/
+.basic {
+	margin-top: 40px;
+}
+
+.basic table {
+	margin: 10px;
+	font-style: italic;
+}
+
+.basic a {
+	text-decoration: underline;
+}
+
+#s_title {
+	background-color: #bbbbbb;
+}
+
+#m_title {
+	letter-spacing: 8px;
+}
+
+.t_kind {
+	font-weight: bold;
+	letter-spacing: 4px;
+	padding-right: 10px;
+}
+
+#t_producer {
+	letter-spacing: 8px;
+}
+/*3) synopsis*/
+.synopsis {
+	overflow: hidden;
+	margin: 5px;
+}
+
+.synopsis p {
+	font-size: 0.9em;
+}
+
+.synopsis img, .synopsis video {
+	max-width: 325px;
+}
+
+.synopsis figure {
+	margin-top: 30px;
+}
+
+.l_synopsis {
+	float: left;
+	width: 325px;
+}
+
+.r_synopsis {
+	margin-left: 20px;
+	float: left;
+	width: 325px;
+}
+
+/*5) cast*/
+.cast {
+	overflow: hidden;
+}
+
+.cast article {
+	position: relative;
+	border-radius: 15px;
+	background-color: #eeeeee;
+	margin-left: 0;
+	width: 350px;
+	height: 140px;
+	font-size: 0.9em;
+}
+
+.cast article:hover {
+	background-color: #aaaaaa;
+}
+
+.cast p {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
+.cast img {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	height: 120px;
+}
+
+/* <-------------------------5. Aside ----------------------------> */
+aside {
+	float: left;
+}
+
+.a_box {
+	position: fixed;
+	right: 170px;
+	top: 350px;
+	padding: 20px;
+	background-color: #cccccc;
+	border-radius: 10px;
+}
+
+/* <-------------------------6. Footer ----------------------------> */
+footer {
+	background-color: #111111;
+	color: #999999;
+	height: 130px;
+}
+
+footer a {
+	color: #999999;
+	text-decoration: underline;
+}
+
+footer h3 {
+	color: #dddddd;
+	margin-bottom: 10px;
+}
+
+footer section {
+	margin: 20px 50px;
+	width: 220px;
+	float: left;
+}
