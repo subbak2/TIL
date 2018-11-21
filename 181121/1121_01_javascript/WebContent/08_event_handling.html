@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS Practice::08_event_handling</title>
+<script type="text/javascript">
+	function hiHandler() {
+		alert('hi');
+		console.log('hi');
+	}
+	
+	function init(){
+		var first= document.getElementById("first");	
+		var second= document.getElementById("second");
+		
+		//DOM Level 0.
+	/*	first.onclick = hiHandler;	
+		second.onclick = hiHandler;		*/
+		
+		//DOM Level 2. 다중 핸들러 지원
+		first.addEventListener("click", hiHandler);
+		first.addEventListener("click", function() {
+				document.getElementById("first").style.border = "1px solid red";			
+		});
+	};
+	
+	window.onload=init;
+</script>
+</head>
+<body>
+	<h1 onclick="hiHandler()">테스트</h1>
+	<h1 onclick="hiHandler()">안녕</h1>
+
+	<h1 id="first">테스트</h1>
+	<h1 id="second">안녕</h1>
+
+</body>
+</html>

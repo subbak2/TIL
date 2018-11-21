@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Practice</title>
+<script type="text/javascript">
+<!-- 선언적 함수 -->
+	function sum(x, y) {
+		return x + y;
+	}
+
+	//변수에 함수 대입
+	small = sum;
+	small2 = function(x, y) {
+		return x + y;
+	}
+
+	document.write(small(15, 20) + " ");
+	document.write(small2(13, 20));
+</script>
+</head>
+<body>
+
+</body>
+</html>

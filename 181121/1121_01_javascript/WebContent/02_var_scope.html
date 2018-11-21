@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript Practice</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var stringVar ="Hello hahahahaha";
+		var stringVar2='Hello';
+		var numberVar=100.1;
+		var booleanVar = true;
+		var objectVar = {"name":"김재환", "age":23};
+		var functionVar = function(){
+			var hi = "hihi";
+			alert("Hi "+objectVar.name+hi);
+		};
+		var undefinedVar;	<!-- null같은 느낌 -->
+
+		console.log(stringVar+":"+typeof(stringVar));
+		console.log(stringVar2+":"+typeof(stringVar2));
+		console.log(numberVar+":"+typeof(numberVar));
+		console.log(booleanVar+":"+typeof(booleanVar));
+		console.log(objectVar+":"+typeof(objectVar));
+		console.log(functionVar+":"+typeof(functionVar));
+		console.log(undefinedVar+":"+typeof(undefinedVar));
+
+		console.log(hi+":"+typeof(hi));
+		functionVar();
+
+		document.write(stringVar);
+	</script>
+
+</body>
+</html>

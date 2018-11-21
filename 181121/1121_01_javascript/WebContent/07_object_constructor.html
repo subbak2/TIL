@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS Practice::07_object_constructor</title>
+<script type="text/javascript">
+	var person = {
+		"name" : "이기수",
+		"age" : 25,
+		"personality" : "인성논란",
+		"비고" : "클래시로얄 못 함",
+		"increaseAge" : function() {
+			this.age++;
+		}
+	};
+
+	var person2 = {
+		"name" : "김성태",
+		"age" : 26,
+		"personality" : "프로수면간잽이",
+		"비고" : "쫄보",
+		"increaseAge" : function() {
+			this.age++;
+		}
+	};
+	
+	console.log(person.name+"/"+person.age);	
+	console.log(person2.name+"/"+person2.age);	
+	
+	function Person(name, age){
+		this.name=name;
+		this.age=age;
+	}
+	
+	var p1 = new Person("김재환", 23);	
+	console.log(p1.name+"/"+p1.age);
+	console.log(p2.name+"/"+p2.age);
+	p1.increase
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

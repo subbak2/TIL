@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS Practice::06_object</title>
+<script type="text/javascript">
+	var person = {
+		"name":"이기수",
+		"age":25,
+		"personality":"인성논란",
+		"비고":"클래시로얄 못 함",
+		"increaseAge":function(){
+			this.age++;
+		}
+	};
+	console.log(person);
+	console.log(person.age);
+	person.increaseAge();
+	console.log(person);
+	console.log(person.age);
+</script>
+</head>
+<body>
+
+</body>
+</html>

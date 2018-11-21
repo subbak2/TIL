@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="util.js">
+
+</script>
+<script type="text/javascript">
+   
+   function myFunc(value1,value2) {
+      
+      console.log(value1+"/"+value2);
+   }
+   
+   //가변인자 함수를 만들고 싶다. 매개변수를 안정해놔도 그냥 받을 수 있다.
+   function sumAll(){
+      //console.log(arguments.length);
+      var result= 0;
+      for(var i=0; i<arguments.length;i++){
+         
+         result+=arguments[i];
+      }
+      return result;
+   }
+   
+   myFunc();
+   myFunc(10);
+   myFunc(10,20);
+   //인자를 더줘도 덜줘도 됨
+   myFunc(50,20,30);
+      
+   console.log(sumAll(1));
+   console.log(sumAll(1,2));
+   console.log(sumAll(1,2,3));
+   console.log(sumAll(1,2,3,4));
+   //외부스크립트에 이미 big함수가 정의되어 있으면 여기서 overwrite함
+   //전역적으로 쓰지 않아도 되는 함수면 지역에다 넣으면됨
+   //함수안에 함수를 넣을 수 있다!!
+   
+   function process() {
+      function big(x,y) {
+         if(x<y) return y;
+         return x;      
+      }
+      console.log(big(10,20));
+      
+   }
+   
+   process();
+   
+   console.log(big(10,20));
+   
+   
+   //매개변수 함수로 온다고 가정
+   function display(viewHandler){
+      var result = "Hello";
+      viewHandler(result);   
+   }
+   
+   </script>
+   
+</head>
+<body>
+   <h1 id="result"></h1>
+   <script type="text/javascript">
+   
+   display(function(result){
+      alert(result);
+   });
+   display(function(result){
+      document.getElementById("result").innerHTML=result;
+   })
+   
+   </script>
+</body>
+</html>

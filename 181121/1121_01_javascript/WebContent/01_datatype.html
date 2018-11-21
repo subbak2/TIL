@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript Practice</title>
+<script type="text/javascript">
+	var myVar = "전역변수";
+	var callCount = 0;
+
+	function myFunction() {
+		var myVar = "지역변수", index = 0;
+		count = 10;
+		callCount = 1;
+		
+		console.log("myVar : " + myVar);
+		console.log("index : " + index);
+		console.log("count : " + count);
+		console.log("callCount : " + callCount);
+	}
+	myFunction();
+	console.log("myVar : " + myVar+"/"+typeof(myVar));
+	console.log("count : " + count);
+	console.log("callCount : " + callCount);
+	
+	document.write("myVar : " + myVar+"/"+typeof(myVar));
+	document.write("count : " + count);
+	document.write("callCount : " + callCount);
+</script>
+</head>
+<body>
+
+</body>
+</html>
