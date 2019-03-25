@@ -10,3 +10,7 @@ Thank you in advance.
 
 * React
 190324. How to start React
+
+
+* Algorithm
+190325. BOJ 2098 - TSP(Traveling Salesman problem)
