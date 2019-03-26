@@ -1,0 +1,76 @@
+<settings>
+  <proxies>
+    <proxy>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>70.10.15.10</host>
+      <port>8080</port>
+      <nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
+    </proxy>
+    <proxy>
+      <id>https</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>70.10.15.10</host>
+      <port>8080</port>
+      <nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
+	</proxy>
+  </proxies>
+
+  <mirrors>
+    <mirror>
+      <id>mirrorOfCentral</id>
+      <name>http protocol instead of https</name>
+      <url>http://repo.maven.apache.org/maven2/</url>
+      <mirrorOf>central</mirrorOf>
+	</mirror>
+  </mirrors>
+
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>insecurecentral</activeProfile>
+  </activeProfiles>
+  <profiles>
+    <profile>
+      <id>insecurecentral</id>
+      <!--Override the repository (and pluginRepository) "central" from the Maven Super POM -->
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+        <repository>
+          <id>jcenter</id>
+          <url>http://jcenter.bintray.com/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>jcenter</id>
+          <url>http://jcenter.bintray.com/</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <name>Internal Mirror of Central Plugins Repository</name>
+          <url>http://www.ibiblio.org/maven2/plugins</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>remote</id>
+          <name>Internal Mirror of Central Plugins Repository</name>
+          <url>http://repo1.maven.org/maven2</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+</settings>
