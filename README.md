@@ -7,15 +7,15 @@ This place is my daily study notes for everything about computer science.
 If you have any questions or feedbacks, please mail at subbak2@likelion.org. 
 Thank you in advance.
 
-###Java
-#####Index
+### Java
+##### Index
 190326. Clean Coding
 
-###React
-#####Index
+### React
+##### Index
 190324. How to start React
 
 
-###Algorithm
-#####Index
+### Algorithm
+##### Index
 190325. BOJ 2098 - TSP(Traveling Salesman problem)
