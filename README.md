@@ -17,8 +17,10 @@ Thank you in advance.
 ### Android
 ##### Index
    [181213](https://github.com/subbak2/TIL/tree/master/181213) Applying OCR (Tesseract OCR)
+   
    [181207](https://github.com/subbak2/TIL/tree/master/181207) Memo App Practice
-   [181210](https://github.com/subbak2/TIL/tree/master/181210) Memo App Practice2
+   
+   [181210](https://github.com/subbak2/TIL/tree/master/181210) Memo App Practice2   
    
 
 <hr/>
