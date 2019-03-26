@@ -10,18 +10,18 @@ Thank you in advance.
 
 ### Java
 ##### Index
-    190326. Clean Coding
+    [190326](https://github.com/subbak2/TIL/tree/master/190326) Clean Coding
 
 <hr/>
 
 ### React
 ##### Index
-    190324. How to start React
+    [190324](https://github.com/subbak2/TIL/tree/master/190324) How to start React
 
 <hr/>
 
 ### Algorithm
 ##### Index
-    190325. BOJ 2098 - TSP(Traveling Salesman problem)
+    [190325](https://github.com/subbak2/TIL/tree/master/190325) BOJ 2098 - TSP(Traveling Salesman problem)
 
 <hr/>
