@@ -12,6 +12,8 @@ Thank you in advance.
 ##### Index
    [190325](https://github.com/subbak2/TIL/tree/master/190325) BOJ 2098 - TSP(Traveling Salesman problem)
    
+   [181103](https://github.com/subbak2/TIL/tree/master/181103) BOJ 2098 - TSP(Traveling Salesman problem) / Time Limit (Brute force)
+   
    [190107](https://github.com/subbak2/TIL/tree/master/190107) BOJ 2448 - 별 찍기 11
 
 <hr/>
@@ -30,6 +32,10 @@ Thank you in advance.
 ### Java
 ##### Index
    [190326](https://github.com/subbak2/TIL/tree/master/190326) Clean Coding
+   
+   [181031](https://github.com/subbak2/TIL/tree/master/181031) Java MVC pattern
+   
+   [181101](https://github.com/subbak2/TIL/tree/master/181101) Java XML parser(SAX, DOM)
 
 <hr/>
 
