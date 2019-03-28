@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="TIL">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/" source-path="/181031/1031_03_JavaIO/src"/>
+        <wb-resource deploy-path="/" source-path="/181207/MemoApp/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r"/>
+        <wb-resource deploy-path="/" source-path="/181207/MemoApp/app/build/generated/source/buildConfig/debug"/>
+        <wb-resource deploy-path="/" source-path="/181210/MemoThird/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r"/>
+        <wb-resource deploy-path="/" source-path="/181210/MemoThird/app/build/generated/source/buildConfig/debug"/>
+        <wb-resource deploy-path="/" source-path="/190326/gilded-rose/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/190326/gilded-rose/src/test/java"/>
+        <wb-resource deploy-path="/" source-path="/190326/restaurant-booking/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/190326/restaurant-booking/src/test/java"/>
+        <property name="context-root" value="TIL"/>
+        <property name="java-output-path" value="/TIL/181031/1031_03_JavaIO/bin"/>
+    </wb-module>
+</project-modules>

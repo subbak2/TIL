@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="181031/1031_03_JavaIO/src"/>
+	<classpathentry kind="src" path="181101/1101_06_JAVA_XML/src"/>
+	<classpathentry kind="src" path="181102/1102_02_networking_chatting/src"/>
+	<classpathentry kind="src" path="181104/1104_01_SelfTest/src"/>
+	<classpathentry kind="src" path="181107/1107_02_selftest/src"/>
+	<classpathentry kind="src" path="181108/1108_04_selftest/src"/>
+	<classpathentry kind="src" path="181109/1109_02_tx_batch/src"/>
+	<classpathentry kind="src" path="181111/181111_selftest/src"/>
+	<classpathentry kind="src" path="181113/1113_03_selftest/src"/>
+	<classpathentry kind="src" path="181114/1114_03_selftest/src"/>
+	<classpathentry kind="src" path="181116/1113_01_servlet_lifecycle/src"/>
+	<classpathentry kind="src" path="181116/1113_02_form/src"/>
+	<classpathentry kind="src" path="181116/1114_02_mvc/src"/>
+	<classpathentry kind="src" path="181116/1114_03_selftest/src"/>
+	<classpathentry kind="src" path="181116/1115_01_mvc_dao/src"/>
+	<classpathentry kind="src" path="181116/1115_02_mvc_dao_connectionpool/src"/>
+	<classpathentry kind="src" path="181207/MemoApp/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r"/>
+	<classpathentry kind="src" path="181207/MemoApp/app/build/generated/source/buildConfig/debug"/>
+	<classpathentry kind="src" path="181210/MemoThird/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r"/>
+	<classpathentry kind="src" path="181210/MemoThird/app/build/generated/source/buildConfig/debug"/>
+	<classpathentry kind="src" path="190326/gilded-rose/src/main/java"/>
+	<classpathentry kind="src" path="190326/gilded-rose/src/test/java"/>
+	<classpathentry kind="src" path="190326/restaurant-booking/src/main/java"/>
+	<classpathentry kind="src" path="190326/restaurant-booking/src/test/java"/>
+	<classpathentry kind="lib" path="181116/1115_01_mvc_dao/WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="181116/1115_02_mvc_dao_connectionpool/WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="190326/restaurant-booking/lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="190326/restaurant-booking/lib/joda-time-2.9.8.jar"/>
+	<classpathentry kind="lib" path="190326/restaurant-booking/lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="190326/restaurant-booking/lib/mockito-all-1.10.19.jar"/>
+	<classpathentry kind="output" path="181031/1031_03_JavaIO/bin"/>
+</classpath>
