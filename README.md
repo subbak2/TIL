@@ -16,7 +16,7 @@ Thank you in advance.
    
    [181103](https://github.com/subbak2/TIL/tree/master/1811/181103) BOJ 2098 - TSP(Traveling Salesman problem) / Time Limit (Brute force)
    
-   [190107](https://github.com/subbak2/TIL/tree/master/1903/190107) BOJ 2448 - 蹂� 李띻린 11
+   [190107](https://github.com/subbak2/TIL/tree/master/1903/190107) BOJ 2448 - 별  11
 
 <hr/>
 
