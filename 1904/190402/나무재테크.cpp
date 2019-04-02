@@ -1,4 +1,4 @@
-//³ª¹« ÀçÅ×Å©
+//Â³ÂªÂ¹Â« Ã€Ã§Ã…Ã—Ã…Â©
 #if 1
 #include <stdio.h>
 #include <queue>
@@ -152,7 +152,7 @@ void Input(void) {
 			scanf("%d", &map[i][j]);
 			forest[i][j].val = 5;
 			while (!forest[i][j].trees.empty()) {
-				forest[i][j].trees.pop();	//ageÀÇ emptu
+				forest[i][j].trees.pop();	//ageÃ€Ã‡ emptu
 			}
 		}
 	}
