@@ -18,7 +18,9 @@ Thank you in advance.
    
    [190107](https://github.com/subbak2/TIL/tree/master/1903/190107) BOJ 2448 - 별  11
    
-   [190406](https://github.com/subbak2/TIL/tree/master/1904/190406) BOJ 10830 - 행렬 
+   [190408](https://github.com/subbak2/TIL/tree/master/1904/190408) BOJ 1202 - 보석도둑 (priority_queue) 
+   
+   [190406](https://github.com/subbak2/TIL/tree/master/1904/190406) BOJ 10830 - 행렬 제곱
    
    [190405](https://github.com/subbak2/TIL/tree/master/1904/190405) BOJ 4803 - 트리 (DFS, vector)
    
