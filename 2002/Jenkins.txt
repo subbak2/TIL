@@ -1,0 +1,47 @@
+기존 배포 방식 
+
+수정된 사항을 Git에 Push & Commit
+로컬 환경에서 프로젝트를 빌드.
+빌드 완료된 추출물(jar 또는 war)를 서버로 전송.
+톰캣 재부팅을 통해 배포.
+
+
+
+1. 젠킨스(Jenkins)란?
+지속적인 통합 CI(Continuous Integration) Server이다.
+자바(Java)를 기반으로 만들어 졌으며 Open source이다.
+다양한 플러그를 제공한다.
+subversion, git등 소스 툴과 Maven, Gradle등 빌드 툴을 지원한다.
+
+2. 젠킨스(Jenkins)를 설치하기 위해 필요한 준비물
+아래의 모든 프로그램을 설치하기를 바란다.
+JDK - Java
+( link : https://java.com/ko/download/manual.jsp )
+
+Web Server(Tomcat, JBoss)
+( link : https://tomcat.apache.org/download-80.cgi )
+
+Build Tool(Maven, Ant)
+( link : https://maven.apache.org/download.cgi )
+( link : https://gradle.org/gradle-download )
+
+Git, SVN
+( link : https://git-scm.com/downloads )
+
+
+방법쓰
+
+- 젠킨스를 빌드할 준비
+jdk 위치 잡기 ------------ 하고 있는 부분
+
+1) admin에 권한 부여
+tomcat conf 폴더에 있는 tomcat-users.xml
+
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<role rolename="admin-gui"/>
+<role rolename="admin-script"/>
+<user username="anomyMaster" password="dkshal123!" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+
