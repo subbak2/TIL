@@ -1,0 +1,67 @@
+기존 배포 방식 
+
+수정된 사항을 Git에 Push & Commit
+로컬 환경에서 프로젝트를 빌드.
+빌드 완료된 추출물(jar 또는 war)를 서버로 전송.
+톰캣 재부팅을 통해 배포.
+
+1. 젠킨스(Jenkins)란?
+지속적인 통합 CI(Continuous Integration) Server이다.
+자바(Java)를 기반으로 만들어 졌으며 Open source이다.
+다양한 플러그를 제공한다.
+subversion, git등 소스 툴과 Maven, Gradle등 빌드 툴을 지원한다.
+
+2. 젠킨스(Jenkins)를 설치하기 위해 필요한 준비물
+아래의 모든 프로그램을 설치하기를 바란다.
+1) JDK - Java
+( link : https://java.com/ko/download/manual.jsp )
+amazon linux2의 경우 corretto 8 이 필요함
+https://docs.aws.amazon.com/ko_kr/corretto/latest/corretto-8-ug/what-is-corretto-8.html
+
+
+1) Amazon Linux 2에서 yum 리포지토리를 활성화합니다.
+sudo amazon-linux-extras enable corretto8
+
+2) 런타임 환경(JRE) 또는 전체 개발 환경(JDK)으로 Amazon Corretto 8를 설치할 수 있습니다. 개발 환경에는 런타임 환경이 포함됩니다.
+sudo yum install java-1.8.0-amazon-corretto
+
+JDK로 Amazon Corretto 8를 설치합니다.
+sudo yum install java-1.8.0-amazon-corretto-devel
+
+3) java -version 실행결과 corretto 가 보이지 않으면 java 버전을 바꿔줌
+sudo alternatives --config java
+sudo alternatives --config javac
+
+jenkins 설정 global tool configuration
+
+
+
+Build Tool(Maven)
+( link : https://maven.apache.org/download.cgi )
+
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+mvn --version
+
+Maven home: /usr/share/apache-maven
+
+
+Git
+( link : https://git-scm.com/downloads )
+git.exe를 경로로 잡아줌
+
+Web Server(Tomcat, JBoss)
+( link : https://tomcat.apache.org/download-80.cgi )
+
+admin에 권한 부여
+tomcat conf 폴더에 있는 tomcat-users.xml
+
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<role rolename="admin-gui"/>
+<role rolename="admin-script"/>
+<user username="id" password="비번" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+
