@@ -1,0 +1,113 @@
+## 데이터 프레임 생성
+cust_id <- c("c01","c02","c03","c04")
+last_name <- c("Kim", "Lee", "Choi", "Park")
+cust_mart_1 <- data.frame(cust_id, last_name)
+
+cust_mart_2 <- data.frame(cust_id = c("c05", "c06", "c07"), 
++                           last_name = c("Bae", "Kim", "Lim")) 
+
+cust_mart_12 <- rbind(cust_mart_1, cust_mart_2) 
+
+cust_mart_3 <- data.frame(cust_id = c("c08", "c09"), 
++                           last_name = c("Lee", "Park"), 
++                           gender = c("F", "M"))
+
+rbind(cust_mart_12, cust_mart_3)
+
+cust_mart_4 <- data.frame(cust_id = c("c10", "c11"), 
++                           first_name = c("Kildong", "Yongpal"))
+
+rbind(cust_mart_12, cust_mart_4)
+
+## (2) 열 결합 cbind(A, B)
+
+cust_mart_5 <- data.frame(age = c(20, 25, 19, 40, 32, 39, 28), 
++                           income = c(2500, 2700, 0, 7000, 3400, 3600, 2900))
+
+cust_mart_125 <- cbind(cust_mart_12, cust_mart_5)
+
+cust_mart_6 <- data.frame(age = c(34, 50), 
++                           income = c(3600, 5100))
+
+cbind(cust_mart_125, cust_mart_6)
+Error in data.frame(..., check.names = FALSE) : 
+  arguments imply differing number of rows: 7, 2
+
+
+
+############################################
+
+console > cust_mart_1
+  cust_id last_name
+1     c01       Kim
+2     c02       Lee
+3     c03      Choi
+4     c04      Park
+
+> cust_mart_2
+  cust_id last_name
+1     c05       Bae
+2     c06       Kim
+3     c07       Lim
+ 
+> cust_mart_12
+  cust_id last_name
+1     c01       Kim
+2     c02       Lee
+3     c03      Choi
+4     c04      Park
+5     c05       Bae
+6     c06       Kim
+7     c07       Lim
+
+> cust_mart_3
+  cust_id last_name gender
+1     c08       Lee      F
+2     c09      Park      M
+
+> cust_mart_4
+  cust_id first_name
+1     c10    Kildong
+2     c11    Yongpal
+
+Error in match.names(clabs, names(xi)) : 
+  names do not match previous names 
+
+
+
+> cust_mart_12
+  cust_id last_name
+1     c01       Kim
+2     c02       Lee
+3     c03      Choi
+4     c04      Park
+5     c05       Bae
+6     c06       Kim
+7     c07       Lim
+> cust_mart_5
+  age income
+1  20   2500
+2  25   2700
+3  19      0
+4  40   7000
+5  32   3400
+6  39   3600
+7  28   2900
+> 
+> 
+> cust_mart_125
+  cust_id last_name age income
+1     c01       Kim  20   2500
+2     c02       Lee  25   2700
+3     c03      Choi  19      0
+4     c04      Park  40   7000
+5     c05       Bae  32   3400
+6     c06       Kim  39   3600
+7     c07       Lim  28   2900
+
+
+> > cust_mart_6
+  age income
+1  34   3600
+2  50   5100
+> 
