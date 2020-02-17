@@ -65,3 +65,96 @@ tomcat conf 폴더에 있는 tomcat-users.xml
 <role rolename="admin-script"/>
 <user username="id" password="비번" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
 
+
+
+
+**********************0216*********************
+
+* 필수 plugin - deploy to container
+
+\3. Jenkins 설정
+[Jenkins 관리] -> [플러그인 관리] -> Deploy to container Plugin 플러그인 설치
+Job 선택 -> [구성] 메뉴 클릭
+빌드 후 조치 부분에 [빌드 후 조치 추가] 버튼을 클릭 후 Deploy war/ear to a conatiner 선택
+Tomcat Deploy 설정 후 저장
+① WAR/EAR files은 워크스페이스에서 가져올 WAR 또는 EAR파일을 어디에서 어떤 이름으로 가져올지를 설정하는 곳이다.
+② Context path는 배포시 사용할 컨텍스트를 지정한다. /test로 지정하면 http://URL/test/index.jsp 식으로 접속이 가능해진다.
+현재 톰캣 7.x까지 지원하는걸로 나오는데 7.x 선택 후 8 버전도 사용이 가능하다.
+③ Container는 사용하는 Container를 선택하는 곳이다.
+④ Manager username은 앞서 톰캣에서 설정한 아이디를 입력한다.
+⑤ Manager password도 앞서 톰캣에서 설정한 암호를 입력한다.
+⑥ Tomcat URL은 톰캣에 접속할 때 사용하는 포트까지의 경로이다. http://IP:포트식을 의미한다.
+
+manager.xml 조정	
+저장하고 빠져 나온 후, 보안을 위해 내부 Jenkins 만 Manager에 접속가능하도록 하기 위해서 127.0.0.1 ip 주소만 접속이 가능하도록 설정하겠습니다.
+Tomcat 설치 경로 하위에 'conf/Catalina/localhost/manager.xml’ 파일을 생성합니다.
+$ vi /usr/share/tomcat/conf/Catalina/localhost/manager.xml
+<Context antiResourceLocking="false" privileged="true" docBase="${catalina.home}/webapps/manager">     
+<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow=“127\.0\.0\.1" denyStatus="404" /> 
+</Context>
+입력하고 저장 후 tomcat을 재실행합니다
+$ systemctl restart tomcat
+
+/var/lib/tomcat/webapps
+
+일단 만들어진 webapp일것
+
+
+
+nodejs 플러그인 설치
+jenkins > Jenkins 관리 > 플러그인 관리 > 설치 가능 탭
+필터 : nodejs
+NodeJS Plugin 설치
+ 
+nodejs 플러그인 설정
+jenkins > Jenkins 관리 > Global Tool Configuration
+NodeJS
+설치할 버전 선택, 이름 입력
+Save
+ 
+job 설정
+springboot-vue > 구성
+빌드 환경 > Provide Node & npm bin/ folder to PATH
+nodejs 버전 선택
+Build > Add build step > Execute shell
+아래 스크립트 입력
+cd ${WORKSPACE}/src/main/webpack
+npm install
+npm run build
+ 
+빌드 확인
+Console Output 확인
+
+
+
+
+메타 데이터의 끝으로 건너뛰기
+이청규님이 작성, 2019-07-11에 최종 변경메타 데이터의 시작으로 이동
+테스트 환경
+Jenkins 버전 : v2.138.2
+Job 이름 : HELLO
+Token 명 : outCall
+
+
+Jenkins 전역 설정 
+CSRF Protection 체크 해제
+Jenkins 관리 > Configure Global Security > CSRF Protection > Prevent Cross Site Request Forgery exploits 언체크
+
+
+
+사용자 API Token 생성
+Jenkins 관리 > Manage User > 유저 선택 (예: admin) > 설정 > API Token > Add new Token > Generate > 토큰값 생성 (예 : 1140d85eea07a2c01ce01bf9de450c04f6)
+
+Jenkins Job 설정 
+Job 생성 : HELLO
+Job (예: HELLO) > 구성 > 빌드 유발 > 빌드를 원격으로 유발 (예: 스크립트 사용) 체크 > Authentication Token 입력 (예: outCall) > 저장
+
+테스트 하기
+외부 서버 접속 (예: ssh root@123.123.123.123 )> curl 명령어로 Jenkins Job 호출
+# 문법 : curl -X post http://<username>:<API_Token>@<JENKINS_URL>/jenkins/job/<JENKINS_JOB_NAME>/build?token=<TOKEN명>
+$ curl -X post http://admin:1140d85eea07a2c01ce01bf9de450c04f6@123.123.123.123:8080/job/HELLO/build?token=outCall
+결과 확인
+외부의 호출로 Jenkins Job이 실행됨을 확인할수 있다!
+
+
+ 
