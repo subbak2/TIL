@@ -156,5 +156,6 @@ $ curl -X post http://admin:1140d85eea07a2c01ce01bf9de450c04f6@123.123.123.123:8
 결과 확인
 외부의 호출로 Jenkins Job이 실행됨을 확인할수 있다!
 
+$ curl -X post http://admin:1140d85eea07a2c01ce01bf9de450c04f6@123.123.123.123:8080/job/HELLO/build?token=outCall
 
- 
+yona에서 할 때는 http에 포함된 authorization : token header를 확인  
