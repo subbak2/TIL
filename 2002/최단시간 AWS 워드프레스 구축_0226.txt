@@ -1,0 +1,83 @@
+1. 인스턴스 준비
+
+2. putty 접속
+
+3. sudo yum update -y
+
+4. sudo yum install -y httpd24 php72 mysql57-server php72-mysqlnd
+
+5. sudo service httpd start
+
+6. sudo chkconfig httpd on
+
+7. chkconfig --list httpd
+
+8. sudo usermod -a -G apache ec2-user
+
+9. sudo chown -R ec2-user:apache /var/www
+
+10. sudo chmod 2775 /var/www
+
+11. find /var/www -type d -exec sudo chmod 2775 {} \;
+
+12. find /var/www -type f -exec sudo chmod 0664 {} \;
+
+13. sudo service mysqld start
+
+14. sudo chkconfig mysqld on
+
+(선택)
+15. sudo yum install php72-mbstring.x86_64 -y
+
+16. sudo service httpd restart
+
+17. cd /var/www/html
+
+18. wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+
+19. mkdir phpMyAdmin && tar -xvzf phpMyAdmin-latest-all-languages.tar.gz -C phpMyAdmin --strip-components 1
+
+20. rm phpMyAdmin-latest-all-languages.tar.gz
+(선택끝)
+
+21. wget https://wordpress.org/latest.tar.gz
+
+22. tar -xzf latest.tar.gz
+
+23. sudo service mysqld start
+
+24. mysql -u root -p
+
+25. CREATE USER 'wordpress-user'@'localhost' IDENTIFIED BY 'your_strong_password';
+
+26. CREATE DATABASE `wordpress-db`;
+
+27. GRANT ALL PRIVILEGES ON `wordpress-db`.* TO "wordpress-user"@"localhost";
+
+28. FLUSH PRIVILEGES;
+
+29. exit
+
+30. cp wordpress/wp-config-sample.php wordpress/wp-config.php
+
+31. vim wordpress/wp-config.php
+
+32. cp -r wordpress/* /var/www/html/
+
+33. sudo vim /etc/httpd/conf/httpd.conf
+    ->  AllowOverride All
+
+34. sudo chown -R apache /var/www
+
+35. sudo chgrp -R apache /var/www
+
+36. sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} \;
+
+37. find /var/www -type f -exec sudo chmod 0664 {} \;
+
+38. sudo service httpd restart
+
+39. sudo chkconfig httpd on && sudo chkconfig mysqld on
+
+Linux AMI1 
