@@ -1,0 +1,7 @@
+1. install python 
+   https://www.python.org
+
+2. install tensorflow2
+ https://www.tensorflow.org/install
+
+  1) pip install --upgrade pip
