@@ -1,13 +1,23 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import numpy as np
-
 import tensorflow as tf
 
-import tensorflow_hub as hub
-import tensorflow_datasets as tfds
+mnist = tf.keras.datasets.mnist
 
-print("버전: ", tf.__version__)
-print("즉시 실행 모드: ", tf.executing_eagerly())
-print("허브 버전: ", hub.__version__)
-print("GPU ", "사용 가능" if tf.config.experimental.list_physical_devices("GPU") else "사용 불가능")
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+model = tf.keras.models.Sequential([
+  tf.keras.layers.Flatten(input_shape=(28, 28)),
+  tf.keras.layers.Dense(128, activation='relu'),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train, epochs=5)
+
+model.evaluate(x_test,  y_test, verbose=2)
