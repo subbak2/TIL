@@ -1,0 +1,21 @@
+1. Database Management System
+
+ 1) DBMS contains information about a particular enterprise
+    - Collection of interrelated data
+    - Set of programs to access the data
+    - An environment that is both convenient and efficient to use
+
+ -> Drawbacks of using file systems to store data
+      - Data redundancy and inconsistency
+      - Difficultty in accessing data
+      - Data isolation
+
+트랜잭션의 격리 수준(isolation)이란?
+  - 동시에 여러 트랜잭션이 처리될 때
+    특정 트랜잭션이 다른 트랜잭션에서 변경하거나 조회하는 데이터를 볼 수 있도록 허용할지 말지를 결정하는 것.
+
+
+READ UNCOMMITTED
+READ COMMITTED
+REPEATABLE READ
+SERIALIZABLE
