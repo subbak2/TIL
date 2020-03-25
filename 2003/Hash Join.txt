@@ -1,0 +1,254 @@
+1억건 정도의 데이터를 가진 2~3개의 테이블을 조인하여 자료를 이행하고자 하면 심각한 수행속도의 저하에 부딪히게 된다.
+
+ 
+
+1. Join Method 의 선택 
+
+ 
+
+대용량의 데이터라면 당연히 Hash Join 을 이용해야 한다.
+
+해쉬조인은 해슁함수 기법을 활용하여 조인을 수행하는 방식으로 Nested Loop 조인이 가진 랜덤 액세스의 단점과 Sort Merge 조인이 가진 정렬의 부담을 해결할 수 있는 대안이다.
+
+ 
+
+랜덤의 부담은 최악의 경우 하나의 로우를 액세스하기 위해 한 블록씩 액세스를 해야 하고, 그 블록이 아직 디스크에 위치하고 있을 수도 있다는 점이다. 정렬의 부담은 정렬처리 그 자체의 부담이라기 보다는 메모리 내에 지정한 정렬영역보다 정렬할 크기가 지나치게 큰 경우에 발생하는 기하급수적인 부담을 말한다.
+
+ 
+
+해쉬조인의 가장 큰 장점은 조인의 연결고리의 인덱스 존재유무에 영향을 받지 않는다는 점이다.
+
+따라서 인라인뷰를 이용한 중간집합을 만들어 가면서 집합의 연산을 통해 결과 집합을 생성해 가다보면 중간에 생성되는 집합들은 일종의 임시 테이블이라고 할 수 있으므로 당연히 인덱스를 가질 수 없다. 이러한 처리에서 해쉬조인의 가치는 크게 부각될 수 밖에 없다.
+
+ 
+
+ 
+
+2. Hash 조인의 튜닝 포인트
+
+ 
+
+1) Build Table 과 Probe Table 의 선택
+
+ 
+
+해쉬 조인을 위해 먼저 액세스하여 필요한 준비를 해두는 처리를 빌드입력(Build Input) 이라 하며, 나중에 액세스하면서 조인을 수행하는 처리를 검증 혹은 검색입력(Probe Input)이라고 한다.
+
+ 
+
+결론부터 언급하면 적은 처리 대상 집합을 가지는 Table 이 Build Table 로 선정되어야 한다.
+
+ 
+
+처리대상 집합이 적다는 것은 테이블 사이즈가 작다는 것을 의미하지는 않는다. 테이블이 아무리 크더라도 인덱스 스캔을 통해 테이블의 3~5% 미만을 액세스한다면 이 경우는 처리 대상 집합이 적은 것이다.
+
+ 
+
+빌드입력이 해쉬영역에 모두 위치할 수 있는 경우는 인_메모리(In_memory) 해쉬조인을 수행하게 되고, 그렇지 못한 경우에는 유예 해쉬조인을 수행하게 된다.
+
+ 
+
+유예 해쉬조인이 수행되는 경우 해쉬 테이블은 Temp 테이블스페이스에 생성된다. Temp 테이블스페이스에 있는 해쉬 테이블이 필요시 해당 부분에 대해서 Block 단위로 액세스하게 된다.
+
+ 
+
+참고) 해쉬조인으로 유도하기 위해서는 USE_HASH(B A) 힌트를 사용한다. 여기서 테이블 B 는 빌드 테이블이며 테이블 A 는 검증테이블을 의미한다.
+
+ 
+
+2) Temp Tablespace 를 이용한 성능 향상
+
+ 
+
+일반적으로 해쉬영역의 크기를 크게 할수록 Temp 테이블스페이스를 적게 사용하지만 무한정 해쉬영역을 확장할 수 없기 때문에 초대용량 데이터를 이행할 때는 해쉬 테이블이 Temp 테이블스페이스에 생성된다.
+
+ 
+
+PGA 의 해쉬 테이블과 Temp 테이블스페이스는 Build 테이블의 처리 대상 집합의 크기에 따라 계속적인 통신을 하게 된다. 아래는 Temp 테이블스페이스의 사용을 확인하는 SQL이다.
+
+ 
+
+SQL> SELECT USERNAME, TABLESPACE, CONTENTS, SEGTYPE, EXTENTS
+
+         FROM V$TEMPSEG_USAGE;
+
+ 
+
+SEGTYPE : 해쉬조인을 수행할 경우 HASH 라고 표시된다.
+
+                 SORT 라고 표현되면 SQL에서 Order by, Group by 등에 의해 Sort 를 수행하거나
+
+                 인덱스를 생성하는 부분이다.
+
+EXTENTS : 할당된 익스텐트의 갯수이다.
+
+ 
+
+SQL> SELECT A.USERNAME
+                     ,A.TABLESPACE
+                     ,A.CONTENTS
+                     ,A.SEGTYPE
+                     ,A.EXTENTS                         AS USED_EXTENTS
+                     ,TO_CHAR(ROUND(A.EXTENTS / B.TOTAL_EXTENTS * 100,2),'999.00') || '%'
+
+                                                                AS USED_PCT
+                    ,B.FREE_EXTENTS                 AS FREE_EXTENTS
+                 ,TO_CHAR(ROUND(B.FREE_EXTENTS / B.TOTAL_EXTENTS * 100,2),'999.00') || '%'
+
+                                                                AS FREE_PCT
+                   ,B.TOTAL_EXTENTS
+        FROM (SELECT USERNAME, TABLESPACE, CONTENTS, SEGTYPE, EXTENTS
+                   FROM V$TEMPSEG_USAGE) A
+                 ,(SELECT TABLESPACE_NAME, EXTENT_SIZE, TOTAL_EXTENTS
+
+                               ,TOTAL_BLOCKS, USED_EXTENTS, FREE_EXTENTS
+                   FROM V$SORT_SEGMENT) B
+        WHERE A.TABLESPACE = B.TABLESPACE_NAME
+        ;
+
+ 
+
+3) Parallel Processing 을 이용한 성능 향상
+
+ 
+
+해쉬조인 만을 이용하는 것보다는 Parallel Processing 을 이용한 해쉬 조인은 대용량 데이터를 처리하기 위한 최적의 솔루션을 제공하고 있다.
+
+ 
+
+/*+ USE_HASH(B A) PARALLEL(A 8) PARALLEL(B 8) */
+
+ 
+
+4) Parameter 조정을 통한 성능 향상
+
+ 
+
+오라클 9i 이상
+
+ 
+
+SQL> alter system set pga_aggregate_target = 10737418240;
+
+SQL> alter session set workarea_size_policy = auto;
+
+SQL> alter session set hash_multiblock_io_count = 256;
+
+ 
+
+오라클 9i 부터는 자동실행 메모리 기능을 제공하므로 PGA 공간의 크기를 각 세션별로 지정하지 않고 전체 세션이 사용하는 총 크기를 지정하기 때문에 한 세션이 PGA 크기를 전부 독차지 할 수도 있다.
+
+ 
+
+그러나 자동실행 메모리 기능을 실제 사용해보면 오라클 9i 는 제대로 동작하지 않을 때가 많다. 즉, pga_aggregate_target 을 크게 잡아주어도 해쉬영역으로 메모리를 사용하지 못하고 Temp 테이블스페이스를 사용한다. 이는 자동실행 메모리 기능이 9i 에서 새로 추가되었기 때문에 기능이 완벽하지 못하다고 사료된다. 오라클 10g에서는 제대로 동작한다.
+
+ 
+
+db_file_multiblock_read_count : Table Full Scan 시 해당 파라미터를 증가시킴으로써 한 번 디스크 IO에 더 많은 블록을 액세스할 수 있으므로 디스크 IO 횟수를 줄일 수 있다.
+
+이 파라미터는 세션 레벨에서 변경 가능하다.
+
+ 
+
+오라클 9i 이전
+
+ 
+
+SQL> alter session set workarea_size_policy = manual;
+
+SQL> alter session set sort_area_retained_size = 20480000;
+
+SQL> alter session set sort_area_size = 20480000;
+
+SQL> alter session set hash_area_size = 20480000;
+
+SQL> alter session set hash_multiblock_io_count = 256;
+
+SQL> alter session set db_file_multiblock_read_count = 256;
+
+ 
+
+Hash Area Size
+
+ 
+
+해쉬영역(Hash Area)이란 해쉬 조인을 수행하기 위해 메모리(PGA) 내에 만들어진 영역을 말한다. 이 해쉬영역이 부족하면 디스크(Temp Tablespace)를 사용하게 되어 수행속도에 지대한 영향을 미치게 된다.
+
+ 
+
+해쉬영역은 세션별로 지정할 수 있으며 최대 PGA의 크기만큼 설정할 수 있다. 아래는 해쉬영역의 크기를 1G 로 설정한다.
+
+ 
+
+SQL> alter session set hash_area_size = 1073741824;
+
+ 
+
+ 
+
+3. Hash 조인으로 유도
+
+ 
+
+1) 힌트(Hint) 사용
+
+ 
+
+/*+ ORDERED USE_HASH(A B C) PARALLEL(A 8) PARALLEL(B 8) */
+
+ 
+
+USE_HASH 힌트를 사용하여도 옵타마이져가 원하는 실행계획을 만들어 내지 않으면 ORDERED 힌트를 사용하여 실행계획을 고정시킬 필요가 있다. ORDERED 힌트는 쿼리 내 FROM 절의 순서대로 조인을 수행한다.
+
+ 
+
+ 
+
+4. Hash 조인의 모니터링
+
+ 
+
+1) V$PROCESS
+
+ 
+
+SELECT ADDR, PID, PGA_USED_MEM
+
+FROM V$PROCESS
+
+;
+
+ 
+
+해쉬 조인이 사용하는 메모리 용량을 모니터링 할 수 있다.
+
+ 
+
+2) V$SESSION_LONGOPS
+
+ 
+
+SELECT SID, START_TIME, TIME_REMAINING, ELAPSED_SECONDS, MESSAGE
+FROM V$SESSION_LONGOPS
+WHERE SID = XXX
+
+;
+
+ 
+
+V$SESSION_LONGOPS 는 6초 이상 수행되는 OPERATION 의 진행상황을 모니터링 할 수 있는 동적성능 뷰이다.
+
+ 
+
+3) V$TEMPSEG_USAGE
+
+ 
+
+SELECT USERNAME, TABLESPACE, CONTENTS, SEGTYPE, EXTENTS
+FROM V$TEMPSEG_USAGE
+;
+
+ 
+
+해쉬조인이 사용하는 Temp 테이블스페이스의 사용량을 모니터링할 수 있다.
+
