@@ -48,3 +48,8 @@ JDBC API
    -> npm run build
 
 4. 다시 java project에서 jdbc 했을경우 반드시 연결해야함
+
+5. application.properties에서 
+port 변경
+(필요시)
+ server.port = 8080
