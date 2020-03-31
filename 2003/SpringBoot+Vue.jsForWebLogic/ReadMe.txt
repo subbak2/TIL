@@ -48,6 +48,28 @@ JDBC API
    -> npm run build
 
 4. 다시 java project에서 jdbc 했을경우 반드시 연결해야함
+ application.properties에서
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=id (""없음)
+spring.datasource.password=pw (""없음)
+
+# dbcp2 settings
+# spring.datasource.dbcp2.*
+
+spring.datasource.dbcp2.initial-size=7
+spring.datasource.dbcp2.max-total=20
+spring.datasource.dbcp2.pool-prepared-statements=true
+
+POM.XML 에서
+<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.3</version>
+		</dependency>
+
+
+
 
 5. application.properties에서 
 port 변경
