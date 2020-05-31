@@ -1,0 +1,6 @@
+1. SQL은 표준질의어이다.
+
+2. SELECT 결과 중 일부만보여주는 것들
+limit - mysql
+top - sql server
+rownum - oracle, 오라클만 써서 mysql과 sql server가 어떻게 쓰는지 놓침
