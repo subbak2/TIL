@@ -1,3 +1,5 @@
+// https://subbak2.tistory.com/3
+
 // 고스택 3425
 #if 1
 #include <stdio.h>
