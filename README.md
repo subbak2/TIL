@@ -29,7 +29,9 @@ Thank you in advance.
    
    [190915](https://github.com/subbak2/TIL/tree/master/1909/190915) BOJ 2589 - 보물섬 (BFS)
 
-   [2006](https://github.com/subbak2/TIL/tree/master/2006) BOJ 3425 - 고스택
+   [2006](https://github.com/subbak2/TIL/tree/master/2006) BOJ 3425 - 고스택 (구현, 시뮬레이션)
+
+   [2006](https://github.com/subbak2/TIL/tree/master/2006) BOJ 3055 - 탈출 (BFS)
    
 
 <hr/>
