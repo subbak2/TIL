@@ -42,6 +42,10 @@ Thank you in advance.
    [2006](https://github.com/subbak2/TIL/tree/master/2006) BOJ 1920 - 수찾기 (이진탐색)
 
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2252 - 줄세우기 (위상정렬)
+
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1759 - 암호만들기 (DFS)
+
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1922 - 네트워크연결 (MST, 최소신장트리)
    
 
 <hr/>
