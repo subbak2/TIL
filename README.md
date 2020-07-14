@@ -46,6 +46,8 @@ Thank you in advance.
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1759 - 암호만들기 (DFS)
 
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1922 - 네트워크연결 (MST, 최소신장트리)
+
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2748 - 피보나치 수 2 (구현, 기본 DP)
    
 
 <hr/>
