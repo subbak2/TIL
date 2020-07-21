@@ -50,6 +50,8 @@ Thank you in advance.
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2748 - 피보나치 수 2 (구현, 기본 DP)
 
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2042 - 구간합구하기 (인덱스드트리, 세그먼트트리 Indexed Tree)
+
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2517 - 달리기 (인덱스드트리, 세그먼트트리 Indexed Tree)
    
 
 <hr/>
