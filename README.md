@@ -52,6 +52,8 @@ Thank you in advance.
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2042 - 구간합구하기 (인덱스드트리, 세그먼트트리 Indexed Tree)
 
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2517 - 달리기 (인덱스드트리, 세그먼트트리 Indexed Tree)
+
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1655 - 가운데를 말해요 (최소힙, 최대힙)
    
 
 <hr/>
