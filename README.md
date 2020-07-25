@@ -55,6 +55,8 @@ Thank you in advance.
 
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1655 - 가운데를 말해요 (최소힙, 최대힙)
    
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1806 - 부분합 (투포인터, two pointer)
+   
 
 <hr/>
 
