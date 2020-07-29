@@ -58,6 +58,8 @@ Thank you in advance.
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 1806 - 부분합 (투포인터, two pointer)
 
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 11003 - 최솟값 찾기 (deque)
+
+   [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 2096 - 내려가기 (DP 초급)
    
 
 <hr/>
