@@ -60,8 +60,8 @@ public class Main {
 		for (int i=0; i<ABid && CDid>=0; ) {
             int ABsum = AB[i];
             int CDsum = CD[CDid];
-            long ABcnt = 0;
-            long CDcnt = 0;
+            int ABcnt = 0;
+            int CDcnt = 0;
             int totSum = ABsum+CDsum;
             // 4-1. 합이 0인 경우(답인경우)
             if(totSum == 0) {
@@ -76,7 +76,7 @@ public class Main {
                     CDcnt++;
                 }
                 // 4-1-3. AB count * CD count
-                ans+=ABcnt*CDcnt;
+                ans+=(long)ABcnt*(long)CDcnt;
             }
             // 4-2. 0보다 클 경우 값을 줄여야하므로 CD의 포인터를 낮추기
             else if(totSum >0) {
