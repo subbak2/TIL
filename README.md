@@ -63,6 +63,9 @@ Thank you in advance.
    
    [2007](https://github.com/subbak2/TIL/tree/master/2007) BOJ 7453 - 합인 0인 네 정수 (투포인터, two pointer)
 
+   [2008](https://github.com/subbak2/TIL/tree/master/2008) BOJ 6549 - 히스토그램에서 가장 큰 직사각형 (스택, Stack)
+
+
 <hr/>
 
 ### Android
