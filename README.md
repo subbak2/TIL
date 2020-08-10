@@ -65,6 +65,8 @@ Thank you in advance.
 
    [2008](https://github.com/subbak2/TIL/tree/master/2008) BOJ 6549 - 히스토그램에서 가장 큰 직사각형 (스택, Stack)
 
+   [2008](https://github.com/subbak2/TIL/tree/master/2008) BOJ 2143 -두 배열의 합 (투포인터, two pointer)
+
 
 <hr/>
 
