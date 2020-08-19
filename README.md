@@ -67,6 +67,8 @@ Thank you in advance.
 
    [2008](https://github.com/subbak2/TIL/tree/master/2008) BOJ 2143 -두 배열의 합 (투포인터, two pointer)
 
+   [2008](https://github.com/subbak2/TIL/tree/master/2008) 2020 카카오 코딩테스트_문제1_키패드 (구현)
+
 
 <hr/>
 
