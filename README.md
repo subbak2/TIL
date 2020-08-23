@@ -69,6 +69,8 @@ Thank you in advance.
 
    [2008](https://github.com/subbak2/TIL/tree/master/2008) 2020 카카오 코딩테스트_문제1_키패드 (구현)
 
+   [2008](https://github.com/subbak2/TIL/tree/master/2008) BOJ 1175 - 배달 (BFS + 4차원 가지치기 or DP)
+
 
 <hr/>
 
