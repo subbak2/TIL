@@ -1,0 +1,94 @@
+전문 : subbak2.tistory.com/49
+
+1. Node.js의 기본특징
+Nodejs 는 이벤트 기반의 플랫폼. 노드에서 일어나는 모든 일은 어떤 이벤트에 대한 반응. 모두 일련의 콜백이다. libuv라는 추상화된 라이브러리가 이벤트 루프 기능을 제공. 자바스크립트를 실행하는 스레드는 단 하나, 이 스레드가 바로 이벤트 루프가 실행되는 스레드. 
+
+ 
+
+모든 CPU 활용
+
+Node.js어플리케이션은 싱글 스레드로 작동합니다. 멀티코어 환경에서 1개의 Node.js 어플리케이션은 효율적으로 작동하지 않습니다. 낭비되는 CPU가 있기 때문입니다. Cluster Module을 사용하면, CPU 마다 child 프로세스를 쉽게 만들 수 있습니다. 각각의 child 프로세스는 각자 자신만의 이벤트루프가 존재하고 master 프로세스는 모든 자식들에게 요청을 분산시켜 줍니다.
+
+ 
+
+스레드 풀 조정
+앞서 언급했듯이, libuv는 스레드 4개로 스레드 풀을 생성합니다. 스레드 풀의 기본 크기는 UV_THREADPOOL_SIZE 환경변수를 설정해서 수정할 수 있습니다. 이 방법은 I/O 작업이 많은 어플리케이션에서 도움이 될 수 있겠지만, 큰 스레드 풀은 메모리나 CPU를 고갈시킬 수 있음을 기억해야 합니다.
+
+ 
+
+작업을 다른서비스에 맡기기
+
+만약 Node.js가 CPU사용이 과도하게 필요한 작업에서 사용된다면, 이 특정 작업에 더 잘맞는 다른 언어를 선택해서 그 쪽으로 처리를 옮겨 작업량을 줄이는 것이 가능한 방법일 수 있습니다.
+
+ 
+
+package.json
+
+package.json은 프로젝트 정보와 의존성(dependencies)을 관리하는 문서
+이미 작성된 package.json 문서는 어느 곳에서도 동일한 개발 환경을 구축할 수 있게 해준다.
+JSON 포맷으로 작성해야 하며, 다음과 같은 옵션들이 추가될 수 있습니다.
+
+ 
+
+2. Node.js로 package 만들어보기
+1) npm init
+
+// 실행한 script : 앞에 $ 표시, git bash에서 실행
+pks07@JackBook MINGW64 /c/SubCoding/TIL/2104/nodeJsMariaDB (master)
+$ npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (nodejsmariadb) $ testPackage
+Sorry, name can no longer contain capital letters.
+package name: (nodejsmariadb) $ test package
+Sorry, name can only contain URL-friendly characters.
+package name: (nodejsmariadb) $ testpackage
+version: $ (1.0.0)
+description: $ test
+entry point: $ (index.js)
+test command:
+git repository:
+keywords: $ test
+author: $ subbak2
+license: (ISC)
+About to write to C:\SubCoding\TIL\2104\nodeJsMariaDB\package.json:
+
+{
+  "name": "testpackage",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "subbak2",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) $ y
+ 
+
+2) npm test로 package 실행
+
+pks07@JackBook MINGW64 /c/SubCoding/TIL/2104/nodeJsMariaDB (master)
+$ npm test
+
+> testpackage@1.0.0 test C:\SubCoding\TIL\2104\nodeJsMariaDB
+> echo "Error: no test specified" && exit 1
+
+"Error: no test specified"
+npm ERR! Test failed.  See above for more details.
+package.json에 명시된 scripts - test를 실행
