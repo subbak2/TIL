@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 실습</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = function () {
+            var test1 = new Vue(
+                {
+                    el : '#test1',
+                    data : {
+                        str1 : '문자열1',
+                        int1 : 100,
+                        float1 : 11.11                 
+                    }
+                }
+            )
+
+            var test2 = new Vue(
+                {
+                    el : '.test2',
+                    data : {
+                        str2 : '문자열2',
+                        int2 : 200,
+                        float2 : 22.22                 
+                    }
+                }
+            )
+
+            var test3 = new Vue(
+                {
+                    el : '#test3',
+                    data : {
+                        str3 : '문자열3',
+                        int3 : 300,
+                        float3 : 33.33,
+                        boolean3 : true,
+                        array3 : [10,20,30],
+                        object3 : {
+                            a1 : 'a1 문자열',
+                            a2 : 'a2 문자열'
+                        }                                         
+                    }
+                }
+            )
+            console.log(test3.int3);
+            console.log(test3.$data);
+            console.log(test3.$data.int3);
+
+            var test4 = new Vue({
+                el : '#test4',
+                data : {
+                    name : '홍길동',
+                    age : 30
+                },
+                methods : {
+                    user_info : function(){
+                        return '이름은 '+ this.name +'이고 나이는 '+this.age;
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="test1">
+        <h3>{{str1}}</h1>
+        <h3>{{int1}}</h1>
+        <h3>{{float1}}</h1>
+    </div>
+    <hr />
+    <div class="test2">
+        <h3>{{str2}}</h3>
+        <h3>{{int2}}</h3>
+        <h3>{{float2}}</h3>
+    </div>
+    <hr />
+    <div id="test1">
+        <h3>{{str1}}</h3>
+        <h3>{{int1}}</h3>
+        <h3>{{float1}}</h3>
+    </div>
+    <hr />
+    <div class="test2">
+        <h3>{{str2}}</h3>
+        <h3>{{int2}}</h3>
+        <h3>{{float2}}</h3>
+    </div>
+    <hr />
+    <div id="test3">
+        <h3>{{int3}}</h3>
+        <h3>{{float3}}</h3>
+        <h3>{{str3}}</h3>
+        <h3>{{boolan3}}</h3>
+        <h3>{{array3[0]}}</h3>
+        <h3>{{array3[1]}}</h3>
+        <h3>{{array3[2]}}</h3>
+        <h3>{{object3.a1}}</h3>
+        <h3>{{object3.a2}}</h3>
+    </div>
+    <hr />
+    <div id="test4" >
+        <h3>{{user_info()}}</h3>
+    </div>
+</body>
+
+</html>

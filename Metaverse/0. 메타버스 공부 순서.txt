@@ -1,0 +1,20 @@
+순번	주제	내용	공부 자료	참고 URL
+1	C#	"- C# 언어 특징
+ - 출력 및 데이터 형식 사용하기"		https://docs.microsoft.com/ko-kr/dotnet/csharp/tour-of-csharp
+2	C#	"- 문자열 및 연산자 사용하기
+ - 제어문 사용하기"		https://docs.microsoft.com/ko-kr/dotnet/csharp/tour-of-csharp
+3	C#	"- 배열 사용하기
+ - 함수 및 클래스 사용하기"		https://docs.microsoft.com/ko-kr/dotnet/csharp/tour-of-csharp
+4	C#	- 컬렉션과 제네릭 사용하기		https://docs.microsoft.com/ko-kr/dotnet/csharp/tour-of-csharp
+5	Unity	"- 설치, 환경설정
+ - 오브젝트, 배경, UI 다루기"		
+6	Unity	"- Asset, 타일, 아이템
+ - 기본행동, 상호작용"		
+7	Unity	"- C# 연계 구현
+ - 실습 : 미니게임 제작"		
+8	Unity	- 실습 : 멀티플레이 환경 개발		
+9	미정			
+10	미정			
+11	미정			
+12	미정			
+13	공통			

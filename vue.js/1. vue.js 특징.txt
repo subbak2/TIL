@@ -1,0 +1,16 @@
+1. MVVM
+ - Model - View - ViewModel
+ - ViewModel이 Controller처럼 동작.
+   View가 필요로 하는 데이터와 액션을 담고 있는 컨테이너.
+
+2. 특징
+ - Client Side Rendering → SEO 기능은 약함.
+ - AngularJS, React에 비해 작고 가벼움
+ - View에 초점을 맞춰 만들어진 프레임워크
+ - 가상 DOM을 사용
+ - 데이터 바인딩
+ - 컴포넌트
+ - 이벤틑 핸들링
+ - 애니메이션 및 효과
+ - 라우팅
+
