@@ -1,0 +1,8 @@
+Vue.js
+
+1. MVVM
+ - Model - View -ViewModel
+ - MVC에서 컨트롤러가 ViewModel로 변경된 개념
+ - ViewModel은 View가 필요로 하는 데이터와 액션을 담고 있는 컨테이너 개념
+
+2. 
