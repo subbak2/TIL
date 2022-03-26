@@ -17,8 +17,10 @@ http_client.HTTPConnection.debuglevel = 0
 # requests_log.setLevel(logging.DEBUG)
 # requests_log.propagate = True
 
+authKey = '614f47717673756239364a68427852'
+
 # URL : http://openapi.seoul.go.kr:8088/{인증키}/json/bikeList/1/5/
-genReqUrl = 'http://openapi.seoul.go.kr:8088/{본인인증키}/json/bikeList/1/5/'
+genReqUrl = 'http://openapi.seoul.go.kr:8088/'+authKey+'/json/bikeList/1/1000/'
 
 data = requests.get(genReqUrl)
 result = json.loads(data.text)
