@@ -12,6 +12,6 @@
   "author": "subbak2",
   "license": "ISC",
   "dependencies": {
-    "mysql2": "^2.3.3"
+    "mysql2": "^3.9.8"
   }
 }
